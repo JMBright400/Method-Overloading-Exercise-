@@ -7,11 +7,15 @@
             var a = 5;
             var b = 10;
 
-            var intAdd = Add(a, b);
-            var decAdd = Add(a, b);
-            var addWithBool = Add(a, b);
+            var intSum = Add(a, b);
+            var decSum = Add(5.5m, 3.2m);
+            var strResult1 = Add(1, 5, true);
+            var strResult2 = Add(1, 5, false);
 
-            Console.WriteLine(intAdd);
+            Console.WriteLine(intSum);
+            Console.WriteLine(decSum);
+            Console.WriteLine(strResult1);
+            Console.WriteLine(strResult2);
         }
 
         public static int Add(int a, int b)
@@ -26,22 +30,23 @@
 
         public static string Add(int a, int b, bool isChecked)
         {
-            var addedNumbers = a + b;
+            int sum = a + b;
 
-            if (isChecked && addedNumbers > 1)
+            if (isChecked)
             {
-                return $"{addedNumbers} dollars";
-            }
-            else if ((isChecked && addedNumbers == 1))
-            {
-                return $"{addedNumbers} dollar";
+                if (sum == 1)
+                {
+                    return $"{sum} dollar";
+                }
+                else
+                {
+                    return $"{sum} dollars";
+                }
             }
             else
             {
-                return addedNumbers.ToString();
+                return sum.ToString();
             }
-
         }
-
     }
 }
